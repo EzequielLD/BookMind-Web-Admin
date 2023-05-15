@@ -1,4 +1,4 @@
-import 'package:bookmind_web_admin/screens/tables_creator.dart';
+import 'package:bookmind_web_admin/screens/table_autor.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,15 +9,19 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(155, 60, 0, 1),
-        title: const Text('Panel de Administrador de BookMind'),
+        title: const Center(child: Text('Panel de Administrador de BookMind')),
       ),
-      body: Stack(
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Positioned(
-            top: 25,
-            left: 25,
-            right: 25,
-            child: TableCreator(),
+          Padding(
+            padding: EdgeInsets.only(
+              top: 25,
+              left: 25,
+              right: 25,
+            ),
+            child: TableAutor(),
           ),
         ],
       ),
