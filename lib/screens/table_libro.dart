@@ -1,22 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import '../objects/autor.dart';
+import '../objects/libro.dart';
 
-final autorRef =
-    FirebaseFirestore.instance.collection('Autor').withConverter<Autor>(
-          fromFirestore: (snapshots, _) => Autor.fromJson(snapshots.data()!),
-          toFirestore: (autor, _) => autor.toJson(),
+final libroRef =
+    FirebaseFirestore.instance.collection('Libro').withConverter<Libro>(
+          fromFirestore: (snapshots, _) => Libro.fromJson(snapshots.data()!),
+          toFirestore: (libro, _) => libro.toJson(),
         );
 
-class TableAutor extends StatefulWidget {
-  const TableAutor({super.key});
+class TableLibro extends StatefulWidget {
+  const TableLibro({super.key});
 
   @override
-  State<TableAutor> createState() => _TableAutorState();
+  State<TableLibro> createState() => _TableLibroState();
 }
 
-class _TableAutorState extends State<TableAutor> {
+class _TableLibroState extends State<TableLibro> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -35,7 +35,7 @@ class _TableAutorState extends State<TableAutor> {
                 TableCell(
                   verticalAlignment: TableCellVerticalAlignment.middle,
                   child: Text(
-                    'IdAutor',
+                    'IdLibro',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -47,7 +47,7 @@ class _TableAutorState extends State<TableAutor> {
                 TableCell(
                   verticalAlignment: TableCellVerticalAlignment.middle,
                   child: Text(
-                    'Nombre',
+                    'Título',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -59,7 +59,7 @@ class _TableAutorState extends State<TableAutor> {
                 TableCell(
                   verticalAlignment: TableCellVerticalAlignment.middle,
                   child: Text(
-                    'Apellidos',
+                    'Géneros',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -71,7 +71,7 @@ class _TableAutorState extends State<TableAutor> {
                 TableCell(
                   verticalAlignment: TableCellVerticalAlignment.middle,
                   child: Text(
-                    'Género',
+                    'Páginas',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -83,7 +83,7 @@ class _TableAutorState extends State<TableAutor> {
                 TableCell(
                   verticalAlignment: TableCellVerticalAlignment.middle,
                   child: Text(
-                    'Fecha de Nacimiento',
+                    'Sinopsis',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -95,7 +95,7 @@ class _TableAutorState extends State<TableAutor> {
                 TableCell(
                   verticalAlignment: TableCellVerticalAlignment.middle,
                   child: Text(
-                    'Pais de Nacimiento',
+                    'Autor',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -110,8 +110,8 @@ class _TableAutorState extends State<TableAutor> {
         ),
         Container(
           height: 200,
-          child: StreamBuilder<QuerySnapshot<Autor>>(
-            stream: autorRef.snapshots(),
+          child: StreamBuilder<QuerySnapshot<Libro>>(
+            stream: libroRef.snapshots(),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
                 return Center(
@@ -145,7 +145,7 @@ class _TableAutorState extends State<TableAutor> {
                           TableCell(
                             verticalAlignment: TableCellVerticalAlignment.middle,
                             child: Text(
-                              '${data.docs[index].data().idAutor}',
+                              '${data.docs[index].data().idLibro}',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.white,
@@ -157,7 +157,7 @@ class _TableAutorState extends State<TableAutor> {
                           TableCell(
                             verticalAlignment: TableCellVerticalAlignment.middle,
                             child: Text(
-                              '${data.docs[index].data().nombre}',
+                              '${data.docs[index].data().titulo}',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.white,
@@ -169,7 +169,7 @@ class _TableAutorState extends State<TableAutor> {
                           TableCell(
                             verticalAlignment: TableCellVerticalAlignment.middle,
                             child: Text(
-                              '${data.docs[index].data().apellidos}',
+                              '${data.docs[index].data().genero.toString()}',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.white,
@@ -181,7 +181,7 @@ class _TableAutorState extends State<TableAutor> {
                           TableCell(
                             verticalAlignment: TableCellVerticalAlignment.middle,
                             child: Text(
-                              '${data.docs[index].data().genero}',
+                              '${data.docs[index].data().paginas}',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.white,
@@ -193,7 +193,7 @@ class _TableAutorState extends State<TableAutor> {
                           TableCell(
                             verticalAlignment: TableCellVerticalAlignment.middle,
                             child: Text(
-                              '${data.docs[index].data().fechaNacimiento}',
+                              '${data.docs[index].data().sinopsis}',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.white,
@@ -205,7 +205,7 @@ class _TableAutorState extends State<TableAutor> {
                           TableCell(
                             verticalAlignment: TableCellVerticalAlignment.middle,
                             child: Text(
-                              '${data.docs[index].data().paisNacimiento}',
+                              '${data.docs[index].data().autor}',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.white,

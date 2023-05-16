@@ -1,4 +1,3 @@
-//@immutable
 class Autor {
   final String idAutor;
   final String nombre;

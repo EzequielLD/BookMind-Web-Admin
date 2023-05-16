@@ -1,4 +1,5 @@
 import 'package:bookmind_web_admin/screens/table_autor.dart';
+import 'package:bookmind_web_admin/screens/table_libro.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,6 +23,14 @@ class HomeScreen extends StatelessWidget {
               right: 25,
             ),
             child: TableAutor(),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              top: 25,
+              left: 25,
+              right: 25,
+            ),
+            child: TableLibro(),
           ),
         ],
       ),
