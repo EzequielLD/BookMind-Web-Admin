@@ -5,6 +5,7 @@ class Libro {
   final List genero;
   final String sinopsis;
   final String autor;
+  final String pdf;
 
   Libro({
     required this.idLibro,
@@ -13,6 +14,7 @@ class Libro {
     required this.genero,
     required this.sinopsis,
     required this.autor,
+    required this.pdf,
   });
 
   Libro.fromJson(Map<String, Object?> json)
@@ -23,6 +25,7 @@ class Libro {
           genero: json['Genero'] as List,
           sinopsis: json['Sinopsis']! as String,
           autor: json['Autor'] as String,
+          pdf: json['PDF'] as String,
         );
 
   Map<String, Object?> toJson() {
@@ -33,6 +36,7 @@ class Libro {
       'Genero': genero,
       'Sinopsis': sinopsis,
       'Autor': autor,
+      'PDF': pdf,
     };
   }
 }

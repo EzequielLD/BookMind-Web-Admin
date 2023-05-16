@@ -104,6 +104,18 @@ class _TableLibroState extends State<TableLibro> {
                     ),
                   ),
                 ),
+                TableCell(
+                  verticalAlignment: TableCellVerticalAlignment.middle,
+                  child: Text(
+                    'PDF',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22,
+                    ),
+                  ),
+                ),
               ],
             ),
           ],
@@ -206,6 +218,18 @@ class _TableLibroState extends State<TableLibro> {
                             verticalAlignment: TableCellVerticalAlignment.middle,
                             child: Text(
                               '${data.docs[index].data().autor}',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 22,
+                              ),
+                            ),
+                          ),
+                          TableCell(
+                            verticalAlignment: TableCellVerticalAlignment.middle,
+                            child: Text(
+                              '${data.docs[index].data().pdf}',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.white,
